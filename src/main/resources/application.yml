@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+  security:
+    user:
+      name: admin
+      password: password
+  cloud:
+    config:
+      server:
+        git:
+          uri: ssh://git@gitlab.alm.gsnetcloud.corp:2220/Innovation/configuration-properties.git
+          clone-on-start: true
+server:
+  port: 8888
+logging:
+  level:
+    root: info
