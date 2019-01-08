@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri: ssh://git@gitlab.alm.gsnetcloud.corp:2220/Innovation/configuration-properties.git
+          uri: https://github.com/seenimurugan/config-parameters.git
           clone-on-start: true
 server:
   port: 8888
