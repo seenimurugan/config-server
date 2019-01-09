@@ -23,10 +23,6 @@ dependencies {
 	testImplementation('org.springframework.security:spring-security-test')
 }
 
-bootJar {
-	launchScript()
-}
-
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
