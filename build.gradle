@@ -25,7 +25,7 @@ dependencies {
 }
 
 docker {
-	name "hub.docker.com/seenimurugan/$bootJar.baseName:$bootJar.version"
+	name "seenimurugan/$bootJar.baseName:$bootJar.version"
 	files tasks.bootJar.outputs.files.singleFile
 	copySpec.into("build/libs")
 //	tags 'latest' // deprecated, use 'tag'
