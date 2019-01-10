@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk
 
-ARG SOURCE_JAR_FILE=build/libs/config-server-*.jar
+ARG SOURCE_JAR_FILE=build/libs/config-server*.jar
 ENV JAR_FILE=/var/myapp/config-server.jar
 
 COPY ${SOURCE_JAR_FILE} ${JAR_FILE}
@@ -23,6 +23,4 @@ USER bootapp
 
 EXPOSE 8888
 
-ENTRYPOINT ["java"]
-CMD ["-jar", "${JAR_FILE}"]
-
+ENTRYPOINT java -jar $JAR_FILE
