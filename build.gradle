@@ -1,9 +1,3 @@
-plugins {
-	id "java"
-	id "org.springframework.boot" version "2.1.1.RELEASE"
-	id "io.spring.dependency-management" version "1.0.6.RELEASE" // can be applied directly as well - e.g apply plugin "io.spring.dependency-management"
-	id "com.palantir.docker" version "0.21.0"
-}
 
 group = 'com.santander.config.server'
 version = '0.0.1-SNAPSHOT'
@@ -14,7 +8,12 @@ repositories {
 	maven { url "https://repo.spring.io/milestone" }
 }
 
-ext['springCloudVersion'] = 'Greenwich.RC2'
+plugins {
+	id "java"
+	id "org.springframework.boot" version "2.1.1.RELEASE"
+	id "io.spring.dependency-management" version "1.0.6.RELEASE" // can be applied directly as well - e.g apply plugin "io.spring.dependency-management"
+	id "com.palantir.docker" version "0.21.0"
+}
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-security')
@@ -27,15 +26,10 @@ docker {
 	name "seenimurugan/$bootJar.baseName:$bootJar.version"
 	files tasks.bootJar.outputs.files.singleFile
 	copySpec.into("build/libs")
-//	tags 'latest' // deprecated, use 'tag'
-//	tag 'latest', "hub.docker.com/seenimurugan/$bootJar.baseName:$bootJar.version"
-//	dockerfile file('Dockerfile')
-//	files tasks.distTar.outputs, 'file1.txt', 'file2.txt'
 	buildArgs([SOURCE_JAR_FILE: "build/libs/config-server-${bootJar.version}.jar"])
-//	labels(['key': 'value'])
-//	pull true
-//	noCache true
 }
+
+ext['springCloudVersion'] = 'Greenwich.RC2'
 
 dependencyManagement {
 	imports {
