@@ -1,4 +1,11 @@
 
+plugins {
+	id "java"
+	id "org.springframework.boot" version "2.1.1.RELEASE"
+	id "io.spring.dependency-management" version "1.0.6.RELEASE" // can be applied directly as well - e.g apply plugin "io.spring.dependency-management"
+	id "com.palantir.docker" version "0.21.0"
+}
+
 group = 'com.santander.config.server'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -6,13 +13,6 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 	maven { url "https://repo.spring.io/milestone" }
-}
-
-plugins {
-	id "java"
-	id "org.springframework.boot" version "2.1.1.RELEASE"
-	id "io.spring.dependency-management" version "1.0.6.RELEASE" // can be applied directly as well - e.g apply plugin "io.spring.dependency-management"
-	id "com.palantir.docker" version "0.21.0"
 }
 
 dependencies {
