@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM openjdk:8-jre-alpine
 
 ARG SOURCE_JAR_FILE=build/libs/config-server*.jar
 ENV JAR_FILE=/var/myapp/config-server.jar
@@ -10,10 +10,11 @@ ARG group=bootapp
 ARG uid=10002
 ARG gid=10002
 
+#-S = system user -D= user with no password
 RUN set -o errexit -o nounset \
 	&& echo "Adding user and group" \
-	&& groupadd --system --gid ${gid} ${group} \
-	&& useradd --system --gid ${gid} --uid ${uid} --shell /bin/bash -m ${user}
+	&& addgroup -S -g ${gid} ${group} \
+	&& adduser -DS -u ${uid} -G ${group} ${user}
 
 RUN chown ${user}:${group} ${JAR_FILE}
 
