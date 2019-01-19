@@ -20,7 +20,7 @@ RUN chown ${user}:${group} ${JAR_FILE}
 
 RUN chmod 500 ${JAR_FILE}
 
-USER bootapp
+USER ${user}
 
 EXPOSE 8888
 
