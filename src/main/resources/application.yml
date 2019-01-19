@@ -13,10 +13,12 @@ spring:
           clone-on-start: true
 server:
   port: 8888
+  httpPort: 80
   ssl:
+    # openssl pkcs12 -export -out certificate.p12 -inkey private.key -in certificate.crt -certfile ca_bundle.crt -name seenimurugan
     enabled: true
-    key-store-type: JKS
-    key-store: classpath:seenimurugan.jks
+    key-store-type: PKCS12
+    key-store: classpath:certificate.p12
     key-store-password:
     key-alias: seenimurugan
 logging:
