@@ -6,9 +6,9 @@ ENV JAR_FILE=/var/myapp/config-server.jar
 COPY ${SOURCE_JAR_FILE} ${JAR_FILE}
 
 ARG user=bootapp
-ARG group=bootapp
+ARG group=${user}
 ARG uid=10002
-ARG gid=10002
+ARG gid=${uid}
 
 #-S = system user -D= user with no password
 RUN set -o errexit -o nounset \
