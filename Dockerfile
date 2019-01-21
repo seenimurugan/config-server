@@ -22,6 +22,6 @@ RUN chmod 500 ${JAR_FILE}
 
 USER ${user}
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT java -jar $JAR_FILE
